@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="CatalogNHibernate" assembly="CatalogNHibernate">
+  <class name="BrandVO" table="Brand" lazy="false">
+    <id name="Id">
+      <column name="Id"/>
+      <generator class="native"/>
+    </id>
+    <property name="Name">
+      <column name="Name"/>
+    </property>
+  </class>
+</hibernate-mapping>

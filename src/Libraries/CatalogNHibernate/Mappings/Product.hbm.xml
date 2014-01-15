@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="CatalogNHibernate" assembly="CatalogNHibernate">
+  <class name="ProductVO" table="Product" lazy="false">
+    <id name="Id">
+      <column name="Id"/>
+      <generator class="native"/>
+    </id>
+    <property name="Name">
+      <column name="Name"/>
+    </property>
+    <property name="BrandId">
+      <column name="BrandId"/>
+    </property>
+    <bag name="Categories"  inverse="false" lazy="true" generic="true" batch-size="15" table="ProductCategory" cascade="save-update" >
+      <key>
+        <column name="ProductId"/>
+      </key>
+      <many-to-many class="CategoryVO" >
+        <column name="CategoryId"/>
+      </many-to-many>
+    </bag>
+  </class>
+</hibernate-mapping>
