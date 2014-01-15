@@ -1,11 +1,12 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CatalogBusiness;
+using CatalogBusiness.BusinessEntities;
 
 namespace Tests.Integration
 {
     [TestClass]
-    public class IntegrationTests
+    public class BrandTests
     {
         private string brandName;
         private string newBrandName;
@@ -20,32 +21,32 @@ namespace Tests.Integration
         [TestMethod]
         public void CreateBrand()
         {
-            Brand b = new Brand();
+            BrandBusiness b = new BrandBusiness();
             Assert.IsNotNull(b.SaveOrUpdate(new Brand() { Name = brandName }));
         }
 
         [TestMethod]
         public void GetBrand()
         {
-            Brand b = new Brand();
+            BrandBusiness b = new BrandBusiness();
             Assert.IsNotNull(b.GetByName(brandName)[0].Id);
         }
 
         [TestMethod]
         public void Update()
         {
-            Brand b = new Brand();
-            Brand brand = b.GetByName(brandName)[0];
-            brand.Name = newBrandName;
-            Assert.AreEqual(brand.Id, b.SaveOrUpdate(brand));
+            BrandBusiness b = new BrandBusiness();
+            Brand eBrand = b.GetByName(brandName)[0];
+            eBrand.Name = newBrandName;
+            Assert.AreEqual(eBrand.Id, b.SaveOrUpdate(eBrand));
         }
 
         [TestMethod]
         public void Delete()
         {
-            Brand b = new Brand();
-            Brand brand = b.GetByName(newBrandName)[0];
-            Assert.IsTrue(b.Delete(brand));
+            BrandBusiness b = new BrandBusiness();
+            Brand eBrand = b.GetByName(newBrandName)[0];
+            Assert.IsTrue(b.Delete(eBrand));
         }
     }
 }

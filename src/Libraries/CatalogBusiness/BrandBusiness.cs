@@ -1,26 +1,20 @@
-﻿using CatalogDal;
-using CatalogNHibernate;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using CatalogDal;
+using CatalogNHibernate;
+using CatalogBusiness.BusinessEntities;
 
 namespace CatalogBusiness
 {
-    public class Brand
+    public class BrandBusiness
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-
-        public Brand() { }
-        private Brand(BrandVO vo)
-        {
-            this.Id = vo.Id;
-            this.Name = vo.Name;
-        }
+        public BrandBusiness() { }
 
         public Brand Get(int id)
         {
             IBrandDal dal = Factory.Resolve<CatalogDal.IBrandDal>();
-            return new Brand(dal.Get(id));
+            BrandVO vo = dal.Get(id);
+            return new Brand(vo.Id, vo.Name);
         }
 
         public List<Brand> GetByName(string name)
@@ -29,7 +23,7 @@ namespace CatalogBusiness
             IBrandDal dal = Factory.Resolve<CatalogDal.IBrandDal>();
             foreach (BrandVO vo in dal.GetByName(name))
             {
-                lista.Add(new Brand(vo));
+                lista.Add(new Brand(vo.Id, vo.Name));
             }
             return lista;
         }
@@ -40,7 +34,7 @@ namespace CatalogBusiness
             IBrandDal dal = Factory.Resolve<CatalogDal.IBrandDal>();
             foreach (BrandVO vo in dal.GetAll())
             {
-                lista.Add(new Brand(vo));
+                lista.Add(new Brand(vo.Id, vo.Name));
             }
             return lista;
         }

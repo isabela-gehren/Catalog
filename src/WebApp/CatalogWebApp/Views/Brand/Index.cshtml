@@ -1,4 +1,5 @@
-﻿@model List<CatalogBusiness.Brand>
+﻿@using CatalogBusiness.BusinessEntities;
+@model List<CatalogBusiness.BusinessEntities.Brand>
 
 @{
     ViewBag.Title = "Index";
@@ -9,7 +10,7 @@
 
 <a href="/Brand/FormData">Nova marca</a><br /><br />
 
-@foreach (CatalogBusiness.Brand item in Model)
+@foreach (Brand item in Model)
 {
     <a href="/Brand/FormData/@item.Id">@item.Name</a><br />
 }

@@ -12,7 +12,7 @@ namespace CatalogWebApp.Controllers
     {
         public ActionResult Index()
         {
-            Brand brand = new Brand();
+            BrandBusiness brand = new BrandBusiness();
             return View(brand.GetAll());
         }
 
@@ -23,7 +23,7 @@ namespace CatalogWebApp.Controllers
 
             if (id != null)
             {
-                Brand currentBrand = new Brand();
+                BrandBusiness currentBrand = new BrandBusiness();
                 model.Brand = currentBrand.Get(id.Value);
             }
             return View(model);
@@ -32,7 +32,7 @@ namespace CatalogWebApp.Controllers
         [HttpPost]
         public ActionResult FormData(BrandModel model)
         {
-            Brand currentBrand = new Brand();
+            BrandBusiness currentBrand = new BrandBusiness();
             currentBrand.SaveOrUpdate(model.Brand);
             return RedirectToAction("Index");
         }

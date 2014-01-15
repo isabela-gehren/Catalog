@@ -1,4 +1,5 @@
 ﻿using CatalogBusiness;
+using CatalogBusiness.BusinessEntities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
