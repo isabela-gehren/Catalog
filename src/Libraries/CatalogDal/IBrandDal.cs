@@ -7,11 +7,7 @@ using System.Threading.Tasks;
 
 namespace CatalogDal
 {
-    public interface IBrandDal
+    public interface IBrandDal : IGenericDal<BrandVO>
     {
-        BrandVO Get(int id);
-        List<BrandVO> GetByName(string name);
-        int SaveOrUpdate(BrandVO vo);
-        void Delete(BrandVO vo);
     }
 }

@@ -11,6 +11,10 @@ namespace CatalogBusiness
             {
                 case "IBrandDal":
                     return (IDataStore)(object)new BrandDal();
+                case "IProductDal":
+                    return (IDataStore)(object)new ProductDal();
+                case "ICategoryDal":
+                    return (IDataStore)(object)new CategoryDal();
             }
             throw new ApplicationException("DataStore " + typeof(IDataStore).Name + " não está configurado no Factory!");
         }

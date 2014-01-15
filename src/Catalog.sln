@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0A969681
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogTests.Integration", "Tests\Tests.Integration\CatalogTests.Integration.csproj", "{4321D3DB-D6F6-42FD-B117-42BD8B515137}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogWebApp", "WebApp\CatalogWebApp\CatalogWebApp.csproj", "{E94B615A-4611-4449-85A3-F4C34D5E9E26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{4321D3DB-D6F6-42FD-B117-42BD8B515137}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4321D3DB-D6F6-42FD-B117-42BD8B515137}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4321D3DB-D6F6-42FD-B117-42BD8B515137}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E94B615A-4611-4449-85A3-F4C34D5E9E26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E94B615A-4611-4449-85A3-F4C34D5E9E26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E94B615A-4611-4449-85A3-F4C34D5E9E26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E94B615A-4611-4449-85A3-F4C34D5E9E26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

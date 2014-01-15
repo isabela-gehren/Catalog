@@ -46,7 +46,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BrandDal.cs" />
+    <Compile Include="CategoryDal.cs" />
+    <Compile Include="GenericDal.cs" />
     <Compile Include="IBrandDal.cs" />
+    <Compile Include="ICategoryDal.cs" />
+    <Compile Include="IGenericDal.cs" />
+    <Compile Include="IProducDal.cs" />
+    <Compile Include="ProductDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
