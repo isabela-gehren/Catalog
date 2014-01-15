@@ -1,0 +1,15 @@
+﻿@model List<CatalogBusiness.Brand>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<a href="/Brand/FormData">Nova marca</a><br /><br />
+
+@foreach (CatalogBusiness.Brand item in Model)
+{
+    <a href="/Brand/FormData/@item.Id">@item.Name</a><br />
+}

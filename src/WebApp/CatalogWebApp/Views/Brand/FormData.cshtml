@@ -1,0 +1,21 @@
+﻿@model CatalogWebApp.Models.BrandModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Dados</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        @Html.HiddenFor(m=>m.Brand.Id)
+        <div>
+            @Html.LabelFor(m=>m.Brand.Name)
+            @Html.TextBoxFor(m=>m.Brand.Name)
+        </div>
+        <br />
+        <button type="submit" >Enviar</button>
+    </fieldset>
+}

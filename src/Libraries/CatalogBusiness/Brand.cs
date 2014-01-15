@@ -7,8 +7,8 @@ namespace CatalogBusiness
 {
     public class Brand
     {
-        public int Id;
-        public string Name;
+        public int Id { get; set; }
+        public string Name { get; set; }
 
         public Brand() { }
         private Brand(BrandVO vo)
@@ -28,6 +28,17 @@ namespace CatalogBusiness
             List<Brand> lista = new List<Brand>();
             IBrandDal dal = Factory.Resolve<CatalogDal.IBrandDal>();
             foreach (BrandVO vo in dal.GetByName(name))
+            {
+                lista.Add(new Brand(vo));
+            }
+            return lista;
+        }
+
+        public List<Brand> GetAll()
+        {
+            List<Brand> lista = new List<Brand>();
+            IBrandDal dal = Factory.Resolve<CatalogDal.IBrandDal>();
+            foreach (BrandVO vo in dal.GetAll())
             {
                 lista.Add(new Brand(vo));
             }
