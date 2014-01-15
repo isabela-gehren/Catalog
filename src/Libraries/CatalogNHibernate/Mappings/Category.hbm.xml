@@ -8,8 +8,9 @@
     <property name="Name">
       <column name="Name"/>
     </property>
-    <property name="ParentCategoryId">
-      <column name="ParentCategoryId"/>
-    </property>
+    <many-to-one name="ParentCategory" class="CategoryVO">
+      <column name="ParentCategoryId" />
+    </many-to-one>
+
   </class>
 </hibernate-mapping>

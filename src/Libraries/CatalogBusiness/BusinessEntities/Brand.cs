@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CatalogNHibernate;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,10 +13,16 @@ namespace CatalogBusiness.BusinessEntities
         public string Name { get; set; }
 
         public Brand() { }
-        public Brand(int id, string name)
+        internal Brand(int id, string name)
         {
             this.Id = id;
             this.Name = name;
+        }
+
+        internal Brand(BrandVO brand)
+        {
+            this.Id = brand.Id;
+            this.Name = brand.Name;
         }
     }
 

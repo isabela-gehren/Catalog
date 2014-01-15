@@ -10,37 +10,29 @@ namespace CatalogNHibernate
     {
         private int id;
         private string name;
-        private int brandId;
-        private List<CategoryVO> categories;
+        private BrandVO brand;
+        private IList<CategoryVO> categories;
 
-        public int Id
+        public virtual int Id
         {
             get { return id; }
             set { id = value; }
         }
-        public string Name
+        public virtual string Name
         {
             get { return name; }
             set { name = value; }
         }
-        public int BrandId
+        public virtual BrandVO Brand
         {
-            get { return brandId; }
-            set { brandId = value; }
+            get { return brand; }
+            set { brand = value; }
         }
 
-        public List<CategoryVO> Categories
+        public virtual IList<CategoryVO> Categories
         {
-            get
-            {
-                if (categories == null)
-                    categories = new List<CategoryVO>();
-                return categories;
-            }
-            set
-            {
-                categories = value;
-            }
+            get { return categories; }
+            set { categories = value; }
         }
     }
 }

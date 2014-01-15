@@ -8,11 +8,14 @@ namespace CatalogBusiness
 {
     public class BrandBusiness
     {
-        public BrandBusiness() { }
+        private IBrandDal dal;
+        public BrandBusiness()
+        {
+            dal = Factory.Resolve<CatalogDal.IBrandDal>();
+        }
 
         public Brand Get(int id)
         {
-            IBrandDal dal = Factory.Resolve<CatalogDal.IBrandDal>();
             BrandVO vo = dal.Get(id);
             return new Brand(vo.Id, vo.Name);
         }
@@ -20,7 +23,6 @@ namespace CatalogBusiness
         public List<Brand> GetByName(string name)
         {
             List<Brand> lista = new List<Brand>();
-            IBrandDal dal = Factory.Resolve<CatalogDal.IBrandDal>();
             foreach (BrandVO vo in dal.GetByName(name))
             {
                 lista.Add(new Brand(vo.Id, vo.Name));
@@ -31,7 +33,6 @@ namespace CatalogBusiness
         public List<Brand> GetAll()
         {
             List<Brand> lista = new List<Brand>();
-            IBrandDal dal = Factory.Resolve<CatalogDal.IBrandDal>();
             foreach (BrandVO vo in dal.GetAll())
             {
                 lista.Add(new Brand(vo.Id, vo.Name));
@@ -43,12 +44,7 @@ namespace CatalogBusiness
         {
             try
             {
-                IBrandDal dal = Factory.Resolve<CatalogDal.IBrandDal>();
-                BrandVO vo;
-                if (brand.Id != default(int))
-                    vo = dal.Get(brand.Id);
-                else vo = new BrandVO();
-                vo.Name = brand.Name;
+                BrandVO vo = PopulateVO(brand);
                 dal.SaveOrUpdate(vo);
                 return vo.Id;
             }
@@ -59,10 +55,7 @@ namespace CatalogBusiness
         {
             try
             {
-                BrandVO vo = new BrandVO();
-                vo.Id = brand.Id;
-                vo.Name = brand.Name;
-                IBrandDal dal = Factory.Resolve<CatalogDal.IBrandDal>();
+                BrandVO vo = PopulateVO(brand);
                 dal.Delete(vo);
                 return true;
             }
@@ -70,6 +63,14 @@ namespace CatalogBusiness
             {
                 return false;
             }
+        }
+
+        private BrandVO PopulateVO(Brand brand)
+        {
+            BrandVO vo = new BrandVO();
+            vo.Id = brand.Id;
+            vo.Name = brand.Name;
+            return vo;
         }
     }
 }

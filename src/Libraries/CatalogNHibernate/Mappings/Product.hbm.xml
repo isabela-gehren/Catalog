@@ -8,9 +8,9 @@
     <property name="Name">
       <column name="Name"/>
     </property>
-    <property name="BrandId">
+    <many-to-one name="Brand" class="BrandVO">
       <column name="BrandId"/>
-    </property>
+    </many-to-one>
     <bag name="Categories"  inverse="false" lazy="true" generic="true" batch-size="15" table="ProductCategory" cascade="save-update" >
       <key>
         <column name="ProductId"/>

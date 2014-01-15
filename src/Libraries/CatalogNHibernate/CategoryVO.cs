@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CatalogNHibernate
 {
@@ -10,22 +7,24 @@ namespace CatalogNHibernate
     {
         private int id;
         private string name;
-        private int parentCategoryId;
+        private CategoryVO parentCategory;
 
-        public int Id
+        public virtual int Id
         {
             get { return id; }
             set { id = value; }
         }
-        public string Name
+
+        public virtual string Name
         {
             get { return name; }
             set { name = value; }
         }
-        public int ParentCategoryId
+
+        public virtual CategoryVO ParentCategory
         {
-            get { return parentCategoryId; }
-            set { parentCategoryId = value; }
+            get { return parentCategory; }
+            set { parentCategory = value; }
         }
     }
 }

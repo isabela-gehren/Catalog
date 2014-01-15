@@ -48,7 +48,11 @@
   <ItemGroup>
     <Compile Include="BrandBusiness.cs" />
     <Compile Include="BusinessEntities\Brand.cs" />
+    <Compile Include="BusinessEntities\Category.cs" />
+    <Compile Include="BusinessEntities\Product.cs" />
+    <Compile Include="CategoryBusiness.cs" />
     <Compile Include="Factory.cs" />
+    <Compile Include="ProductBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
