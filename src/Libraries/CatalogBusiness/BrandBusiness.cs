@@ -11,7 +11,7 @@ namespace CatalogBusiness
         private IBrandDal dal;
         public BrandBusiness()
         {
-            dal = Factory.Resolve<CatalogDal.IBrandDal>();
+            dal = Factory.Get().Resolve<CatalogDal.IBrandDal>();
         }
 
         public Brand Get(int id)

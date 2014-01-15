@@ -1,25 +1,30 @@
-﻿using CatalogDal;
-using System;
+﻿using System;
+using System.Configuration;
+using Microsoft.Practices.Unity;
+using Microsoft.Practices.Unity.Configuration;
+
 
 namespace CatalogBusiness
 {
-    public class Factory
+    internal class Factory 
     {
-        public static IDataStore Resolve<IDataStore>()
+        private static IFactory _factory = null;
+
+        public static IFactory Get()
         {
-            switch (typeof(IDataStore).Name)
+            if (_factory == null)
             {
-                case "IBrandDal":
-                    return (IDataStore)(object)new BrandDal();
-                case "IProductDal":
-                    return (IDataStore)(object)new ProductDal();
-                case "ICategoryDal":
-                    return (IDataStore)(object)new CategoryDal();
+                UnityConfigurationSection unityConfig = (UnityConfigurationSection)ConfigurationManager.GetSection("unity");
+                ContainerElement containerElement = unityConfig.Containers["DataStore.Factory"];
+
+                UnityContainer container = new UnityContainer();
+                unityConfig.Configure(container, containerElement.Name);
+
+                IFactory factory = (IFactory)container.Resolve<IFactory>();
+                if (factory == null) throw new ApplicationException("O factory IFactory não está configurado!");
+                _factory = factory;
             }
-            throw new ApplicationException("DataStore " + typeof(IDataStore).Name + " não está configurado no Factory!");
+            return _factory;
         }
     }
-
 }
-
-

@@ -12,7 +12,7 @@ namespace CatalogBusiness
         private IProductDal dal;
         public ProductBusiness()
         {
-            dal = Factory.Resolve<CatalogDal.IProductDal>();
+            dal = Factory.Get().Resolve<CatalogDal.IProductDal>();
         }
 
         public Product Get(int id)

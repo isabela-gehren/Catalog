@@ -11,7 +11,7 @@ namespace CatalogBusiness
         private ICategoryDal dal;
         public CategoryBusiness()
         {
-            dal = Factory.Resolve<CatalogDal.ICategoryDal>();
+            dal = Factory.Get().Resolve<CatalogDal.ICategoryDal>();
         }
         
         public Category Get(int id)
