@@ -12,7 +12,8 @@ namespace CatalogWebApp.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public IList<CategoryTreeViewModel> List { get; set; }
-        public string Type;
+        public string Type { get; set; }
+        public string BrandName { get; set; }
         public bool IsChild
         {
             get

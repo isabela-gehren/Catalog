@@ -25,7 +25,7 @@ namespace CatalogWebApp.Controllers
                 CategoryTreeViewModel item = new CategoryTreeViewModel() { Id = cat.Id, Name = cat.Name, Type = "Category", List = GetCategoriesList(c.GetAll().Where(i => i.ParentCategory != null && i.ParentCategory.Id == cat.Id).ToList()) };
                 ProductBusiness pr = new ProductBusiness();
                 foreach (Product p in pr.GetAll().Where(p => p.Categories.Select(i => i.Id).Contains(cat.Id)).ToList())
-                    item.List.Add(new CategoryTreeViewModel() { Id = p.Id, Name = p.Name, Type = "Product" });
+                    item.List.Add(new CategoryTreeViewModel() { Id = p.Id, Name = p.Name, Type = "Product", BrandName = p.Brand.Name });
 
                 cats.Add(item);
             }
@@ -66,5 +66,5 @@ namespace CatalogWebApp.Controllers
             return RedirectToAction("Index");
         }
 
-	}
+    }
 }
