@@ -17,7 +17,7 @@ namespace CatalogBusiness
         public Category Get(int id)
         {
            CategoryVO vo = dal.Get(id);
-           return new Category(vo.ParentCategory);
+           return new Category(vo);
         }
         public List<Category> GetByName(string name)
         {
@@ -33,7 +33,7 @@ namespace CatalogBusiness
             List<Category> lista = new List<Category>();
             foreach (CategoryVO vo in dal.GetAll())
             {
-                lista.Add(new Category(vo.ParentCategory));
+                lista.Add(new Category(vo));
             }
             return lista;
         }

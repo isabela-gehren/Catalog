@@ -1,0 +1,30 @@
+﻿@model CatalogWebApp.Models.ProductModel
+
+@{
+    ViewBag.Title = "FormData";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Dados</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        @Html.HiddenFor(m => m.Product.Id)
+        <div>
+            @Html.LabelFor(m => m.Product.Name, "Nome: ")
+            @Html.TextBoxFor(m => m.Product.Name)
+        </div>
+        <div>
+            @Html.LabelFor(m=>m.Product.Brand.Id, "Marca: ")
+            @Html.DropDownListFor(m=>m.Product.Brand.Id,  new SelectList(Model.AvailableBrands.Select(ac => new { Value = ac.Id, Text = ac.Name }), "Value", "Text"))
+        </div>
+        <div>
+            @Html.Label("Categoria(s): ")
+            @Html.ListBox("Produto_CategoryIds", Model.Categories)
+        </div>
+
+        <button type="submit">Enviar</button>
+    </fieldset>
+
+}

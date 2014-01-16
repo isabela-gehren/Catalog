@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<CatalogWebApp.Models.CategoryTreeViewModel>
+<h2>Catálogo</h2>
+
+<link href="~/Content/themes/base/jquery-treeview.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-treeview-1.0.1.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#categoriesFolder').treeview({ collapsed: true });
+    });
+</script>
+@helper TreeView(IEnumerable<CatalogWebApp.Models.CategoryTreeViewModel> items)
+{
+    foreach (var item in items)
+    {
+    <li>
+        @if (item.IsChild)
+        {
+            var cclass = item.Type.Equals("Product") ? "leaf" : "folder";
+@*<span class="@cclass" id="@item.Id">@item.Name</span>*@
+            if (item.Type.Equals("Product"))
+            {
+            <a href ="/Product/FormData/@item.Id" ><span class="@cclass" >@item.Name</span></a>
+            }
+            else
+            {
+            <a href ="/Category/FormData/@item.Id" ><span class="@cclass" >@item.Name</span></a>
+            }
+
+        }
+        else
+        {
+            <a href ="/Category/FormData/@item.Id" ><span class="Folder">@item.Name</span></a>
+
+            <ul>
+                @TreeView(item.List)
+            </ul>
+        }
+    </li>
+    }
+ 
+}
+<div>
+    <a href="/Category/FormData">Nova Categoria</a><br />
+    <a href="/Product/FormData">Novo Produto</a><br /><br />
+
+    <ul id="categoriesFolder" class="filetree treeview-famfamfam">
+        @TreeView(Model)
+    </ul>
+</div>
+

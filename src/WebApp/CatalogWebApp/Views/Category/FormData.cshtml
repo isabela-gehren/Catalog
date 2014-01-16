@@ -1,0 +1,27 @@
+﻿@model CatalogWebApp.Models.CategoryModel
+
+@{
+    ViewBag.Title = "FormData";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Dados</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset>
+        @Html.HiddenFor(m => m.Category.Id)
+        <div>
+            @Html.LabelFor(m => m.Category.Name, "Nome: ")
+            @Html.TextBoxFor(m => m.Category.Name)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Category.ParentCategory.Id, "Categoria Pai: ")
+            @Html.DropDownListFor(m => m.Category.ParentCategory.Id, Model.AvailableParentCategories,"")
+        </div>
+        <button type="submit">Enviar</button>
+    </fieldset>
+}
