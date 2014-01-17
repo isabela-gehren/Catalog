@@ -8,7 +8,7 @@ namespace CatalogBusiness
 {
     public class BrandBusiness
     {
-        private IBrandDal dal;
+        protected static IBrandDal dal { get; set; }
         public BrandBusiness()
         {
             dal = Factory.Get().Resolve<CatalogDal.IBrandDal>();

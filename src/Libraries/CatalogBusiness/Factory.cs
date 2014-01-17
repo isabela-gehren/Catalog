@@ -6,7 +6,7 @@ using Microsoft.Practices.Unity.Configuration;
 
 namespace CatalogBusiness
 {
-    internal class Factory 
+    public class Factory 
     {
         private static IFactory _factory = null;
 

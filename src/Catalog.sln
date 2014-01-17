@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogTests.Integration", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogWebApp", "WebApp\CatalogWebApp\CatalogWebApp.csproj", "{E94B615A-4611-4449-85A3-F4C34D5E9E26}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogTests.UnitTest", "Tests\CatalogTests.UnitTest\CatalogTests.UnitTest.csproj", "{F255B644-30F1-4C28-A3B2-096C63C6322C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{E94B615A-4611-4449-85A3-F4C34D5E9E26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E94B615A-4611-4449-85A3-F4C34D5E9E26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E94B615A-4611-4449-85A3-F4C34D5E9E26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F255B644-30F1-4C28-A3B2-096C63C6322C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F255B644-30F1-4C28-A3B2-096C63C6322C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F255B644-30F1-4C28-A3B2-096C63C6322C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F255B644-30F1-4C28-A3B2-096C63C6322C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,5 +56,6 @@ Global
 		{15F8BFD3-D5C3-42F7-B742-10BF7B6AA859} = {55025B78-0907-494A-8ECE-45C92F6D0BB8}
 		{45F7266D-1B85-4E0E-A9A3-698EAD2837F1} = {55025B78-0907-494A-8ECE-45C92F6D0BB8}
 		{4321D3DB-D6F6-42FD-B117-42BD8B515137} = {0A969681-A755-4E50-8F42-A2C6BC91D13D}
+		{F255B644-30F1-4C28-A3B2-096C63C6322C} = {0A969681-A755-4E50-8F42-A2C6BC91D13D}
 	EndGlobalSection
 EndGlobal
