@@ -42,6 +42,9 @@ namespace CatalogBusiness
 
         public int SaveOrUpdate(Brand brand)
         {
+            if (dal.GetByName(brand.Name).Count > 0)
+                throw new ApplicationException(string.Format("Já existe uma marca cadastrada com o nome '{0}'", brand.Name));
+
             try
             {
                 BrandVO vo = PopulateVO(brand);

@@ -8,11 +8,9 @@ namespace CatalogWebApp.Models
     {
         public ProductModel()
         {
-            AvailableCategories = new List<Category>();
             AvailableBrands = new List<Brand>();
             Categories = new List<SelectListItem>();
         }
-        public List<Category> AvailableCategories;
         public List<SelectListItem> Categories;
         public List<Brand> AvailableBrands;
         public Product Product { get; set; }

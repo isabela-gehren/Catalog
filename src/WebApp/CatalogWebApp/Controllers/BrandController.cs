@@ -32,9 +32,17 @@ namespace CatalogWebApp.Controllers
         [HttpPost]
         public ActionResult FormData(BrandModel model)
         {
-            BrandBusiness currentBrand = new BrandBusiness();
-            currentBrand.SaveOrUpdate(model.Brand);
-            return RedirectToAction("Index");
+            try
+            {
+                BrandBusiness currentBrand = new BrandBusiness();
+                currentBrand.SaveOrUpdate(model.Brand);
+                return RedirectToAction("Index");
+            }
+            catch (ApplicationException appEx)
+            {
+                ViewBag.ErrorMessage = appEx.Message;
+                return View();            
+            }
         }
     }
 }

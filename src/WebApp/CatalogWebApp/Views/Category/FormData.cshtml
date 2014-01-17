@@ -7,6 +7,12 @@
 
 <h2>Dados</h2>
 
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="errorDiv">
+        @ViewBag.ErrorMessage
+    </div>
+}
 
 @using (Html.BeginForm())
 {

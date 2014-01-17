@@ -40,6 +40,9 @@ namespace CatalogBusiness
 
         public int SaveOrUpdate(Category category)
         {
+            if (dal.GetByName(category.Name).Count > 0)
+                throw new ApplicationException(string.Format("Já existe uma categoria cadastrada com o nome '{0}'", category.Name));
+
             try
             {
                 CategoryVO vo = new CategoryVO();

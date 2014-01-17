@@ -7,15 +7,22 @@
 
 <h2>Dados</h2>
 
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="errorDiv">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
 @using (Html.BeginForm())
 {
     <fieldset>
-        @Html.HiddenFor(m=>m.Brand.Id)
+        @Html.HiddenFor(m => m.Brand.Id)
         <div>
-            @Html.LabelFor(m=>m.Brand.Name)
-            @Html.TextBoxFor(m=>m.Brand.Name)
+            @Html.LabelFor(m => m.Brand.Name)
+            @Html.TextBoxFor(m => m.Brand.Name)
         </div>
         <br />
-        <button type="submit" >Enviar</button>
+        <button type="submit">Enviar</button>
     </fieldset>
 }

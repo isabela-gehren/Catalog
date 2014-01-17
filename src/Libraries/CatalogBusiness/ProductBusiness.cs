@@ -43,6 +43,9 @@ namespace CatalogBusiness
 
         public int SaveOrUpdate(Product product)
         {
+            if (dal.GetByName(product.Name).Count > 0)
+                throw new ApplicationException(string.Format("Já existe um produto cadastrado com o nome '{0}'", product.Name));
+
             try
             {
                 ProductVO vo = PopulateVO(product);
