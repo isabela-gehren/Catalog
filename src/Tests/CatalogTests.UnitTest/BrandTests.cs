@@ -66,10 +66,29 @@ namespace CatalogTests.UnitTest
         }
 
         [TestMethod]
-        public void Insert()
+        [ExpectedException(typeof(ApplicationException))]
+        public void CreateDuplicate()
         {
             Mock<IBrandDal> brandDalMock = new Mock<IBrandDal>();
-            brandDalMock.Setup(a => a.SaveOrUpdate(new BrandVO() { Id = 1, Name = "Marca 1" }));
+            string name = "Marca 1";
+            List<BrandVO> list = new List<BrandVO>();
+            list.Add(new BrandVO() { Id = 1, Name = name });
+            brandDalMock.Setup(a => a.SaveOrUpdate(new BrandVO() { Id = 1, Name = name }));
+            brandDalMock.Setup(a => a.GetByName(name)).Returns(list);
+
+            BrandBusiness brandBusiness = new BrandBusiness();
+            BrandMock.SetMock(brandDalMock.Object);
+            Assert.AreEqual(brandBusiness.SaveOrUpdate(new Brand() { Id = 1, Name = "Marca 1" }), 1);
+        }
+
+        [TestMethod]
+        public void Create()
+        {
+            Mock<IBrandDal> brandDalMock = new Mock<IBrandDal>();
+            string name = "Marca 1";
+            List<BrandVO> list = new List<BrandVO>();
+            brandDalMock.Setup(a => a.SaveOrUpdate(new BrandVO() { Id = 1, Name = name }));
+            brandDalMock.Setup(a => a.GetByName(name)).Returns(list);
 
             BrandBusiness brandBusiness = new BrandBusiness();
             BrandMock.SetMock(brandDalMock.Object);
